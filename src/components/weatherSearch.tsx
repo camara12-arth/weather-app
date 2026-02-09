@@ -17,6 +17,7 @@ city: OptionType | null;
 handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 onOptionSelect: (option: OptionType) => void;
 searchWeather: (e: React.SubmitEvent) => void;
+
 }
 
 const WeatherSearch: React.FC<Props> = ({term,options,city,loading,error,handleInputChange,onOptionSelect,searchWeather}) => {

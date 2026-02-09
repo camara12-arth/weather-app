@@ -12,6 +12,7 @@ import type { forecastType, OptionType } from '../types';
 const useForcast = () => {
   const [city,setCity] = useState<OptionType|null>(null);
   const [term,setTerm] = useState('');
+   const [isSearching, setIsSearching] = useState(true);
   const [weather, setWeather] = useState<forecastType | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -80,7 +81,7 @@ const useForcast = () => {
   const searchWeather = async (e: React.SubmitEvent) => {
     e.preventDefault();
     if (!term.trim()) return;
-
+    setIsSearching(false);
     setLoading(true);
     setError('');
     try {
@@ -88,7 +89,7 @@ const useForcast = () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${city?.lat}&lon=${city?.lon}&appid=${API_KEY}&units=metric&lang=fr`
       ).then((res) => {
         // Construit un objet forecast simplifié attendu par le composant
-        const forecastData = {...res.data.city,list: res.data.list.slice(0, 16)}; // Prendre les 16 premières entrées
+        const forecastData = {...res.data.city,list: res.data.list.slice(0, 18)}; // Prendre les 16 premières entrées
         setWeather(forecastData);
         console.log(res.data);
       });
@@ -109,9 +110,11 @@ return {
     term,
     options,
     city,
+    isSearching,
     weather,
     loading,
     error,
+    setIsSearching,
     handleInputChange,
     onOptionSelect,
     searchWeather

@@ -7,18 +7,20 @@ const App: React.FC = () => {
     term,
     options,
     city,
+    isSearching,
     weather,
     loading,
     error,
+    setIsSearching,
     handleInputChange,
     onOptionSelect,
     searchWeather
   } = useForcast();
-
+ 
   return (
     <>
-      {weather ? (
-        <Forecast data={weather} />
+      {!isSearching && weather ? (
+        <Forecast data={weather} callback={setIsSearching}/>
       ) : (
         <WeatherSearch
           term={term}

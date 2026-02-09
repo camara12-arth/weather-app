@@ -21,10 +21,11 @@ import {
 import type { forecastType } from '../types'
 
 type Props = {
-  data: forecastType
+  data: forecastType;
+  callback: (value: boolean) => void; // Callback pour gérer l'état de recherche dans App
 }
 
-const Forecast = ({ data }: Props) => {
+const Forecast = ({ data,callback }: Props) => {
   // La première entrée de la liste représente le point de référence actuel
   const today = data.list[0]
 
@@ -124,6 +125,9 @@ const Forecast = ({ data }: Props) => {
             description={getVisibilityValue(today.visibility)}
           />
         </section>
+        {/* Bouton pour revenir à la recherche */}
+        <button
+          onClick={() => callback(true)} className='bg-gradient-to-r from-purple-400 to-blue-500 rounded-lg p-1 hover:bg-gradient-to-r hover:from-purple-400 hover:to-purple-500 transition duration-300 ease-out'>Search</button>
       </div>
     </div>
   )
