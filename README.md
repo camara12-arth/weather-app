@@ -51,7 +51,14 @@ export default defineConfig([
   cd weather-app
   npm install
   ```
-
+  ## Configuration du repo
+  ```bash
+  git remote add origin <url>
+  git branch -M main
+  git add .
+  git commit -m "commentaire du changement"
+  git push origin main
+  ```
   ## Scripts utiles
 
   - Démarrer le serveur de développement (HMR) :
