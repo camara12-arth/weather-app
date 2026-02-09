@@ -1,4 +1,6 @@
-const Pop = (): JSX.Element => (
+import type React from "react"
+
+const Pop = (): React.JSX.Element => (
   <svg
     width="15"
     height="12"

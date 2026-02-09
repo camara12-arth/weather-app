@@ -1,4 +1,6 @@
-const aTest = (): JSX.Element => (
+import type React from "react"
+
+const aTest = (): React.JSX.Element => (
   <svg
     width="15"
     height="15"

@@ -1,4 +1,6 @@
-const Sunrise = (): JSX.Element => (
+import type React from "react"
+
+const Sunrise = (): React.JSX.Element => (
   <svg
     width="20"
     height="20"

@@ -1,4 +1,6 @@
-const Pressure = (): JSX.Element => (
+import type React from "react"
+
+const Pressure = (): React.JSX.Element => (
   <svg
     width="15"
     height="15"
