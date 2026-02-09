@@ -29,8 +29,8 @@ const Forecast = ({ data }: Props) => {
   const today = data.list[0]
 
   return (
-    <div className="w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-cyan-400 bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg">
-      <div className="mx-auto w-[300px]">
+    <div className="w-full md:max-w-full py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-cyan-400  backdrop-blur-md rounded drop-shadow-lg">
+      <div className="mx-auto w-[90%] md:w-[90%] md:p-4 lg:w-[90%] xl:w-[90%] 2xl:w-[50%]  p-6 bg-gradient-to-br from-white/80 to-white/60 rounded-2xl shadow-2xl backdrop-blur-sm">
         {/* En-tête principal : nom de la ville, température et intervalle */}
         <section className="text-center">
           <h2 className="text-2xl font-black">
@@ -70,7 +70,7 @@ const Forecast = ({ data }: Props) => {
         </section>
 
         {/* Section de tuiles : lever/coucher du soleil et métriques détaillées */}
-        <section className="flex flex-wrap justify-between text-zinc-700">
+        <section className="flex flex-wrap justify-between text-zinc-700 ">
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5">
             <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
           </div>
