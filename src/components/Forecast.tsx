@@ -19,6 +19,7 @@ import {
 } from './../helpers'
 
 import type { forecastType } from '../types'
+import Farad from './Farad'
 
 type Props = {
   data: forecastType;
@@ -39,6 +40,9 @@ const Forecast = ({ data,callback }: Props) => {
           </h2>
           <h1 className="text-4xl font-extrabold">
             <Degree temp={Math.round(today.main.temp)} />
+          </h1>
+           <h1 className="text-4xl font-extrabold">
+            <Farad temp={Math.round(today.main.temp)} />
           </h1>
           <p className="text-sm">
             {today.weather[0].main} ({today.weather[0].description})
