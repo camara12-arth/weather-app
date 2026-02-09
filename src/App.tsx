@@ -18,7 +18,7 @@ const App: React.FC = () => {
   } = useForcast();
  
   return (
-    <>
+    <div className="min-h-screen w-full bg-gradient-to-br from-blue-300 to-purple-400 flex  justify-center p-4">
       {!isSearching && weather ? (
         <Forecast data={weather} callback={setIsSearching}/>
       ) : (
@@ -33,7 +33,7 @@ const App: React.FC = () => {
           searchWeather={searchWeather}
         />
       )}
-    </>
+    </div>
   );
 };
 

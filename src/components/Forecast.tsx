@@ -31,7 +31,7 @@ const Forecast = ({ data,callback }: Props) => {
 
   return (
     <div className="w-full md:max-w-full py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-cyan-400  backdrop-blur-md rounded drop-shadow-lg">
-      <div className="mx-auto w-[90%] md:w-[90%] md:p-4 lg:w-[90%] xl:w-[90%] 2xl:w-[50%]  p-6 bg-gradient-to-br from-white/80 to-white/60 rounded-2xl shadow-2xl backdrop-blur-sm">
+      <div className="mx-auto w-[95%] md:w-[90%] md:p-4 lg:w-[90%] xl:w-[90%] 2xl:w-[50%]  p-6 bg-gradient-to-br from-white/80 to-white/60 rounded-2xl shadow-2xl backdrop-blur-sm">
         {/* En-tête principal : nom de la ville, température et intervalle */}
         <section className="text-center">
           <h2 className="text-2xl font-black">

@@ -23,8 +23,8 @@ searchWeather: (e: React.SubmitEvent) => void;
 const WeatherSearch: React.FC<Props> = ({term,options,city,loading,error,handleInputChange,onOptionSelect,searchWeather}) => {
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl shadow-2xl backdrop-blur-sm">
-      <form onSubmit={searchWeather} className="mb-6">
+    <div className=" w-[90%] lg:w-[70%] mx-auto p-6 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl shadow-2xl backdrop-blur-sm">
+      <form onSubmit={searchWeather} className="mb-6  md:w-[60%] lg:w-[50%] mx-auto">
         <div className="relative">
           <input
             type="search"
@@ -32,7 +32,7 @@ const WeatherSearch: React.FC<Props> = ({term,options,city,loading,error,handleI
             value={city ? city.name : term}
             onChange={handleInputChange}
             placeholder="Rechercher une ville (ex: Bamako)"
-            className="w-full pl-12 pr-6 py-4 text-lg rounded-2xl bg-white/80 backdrop-blur-sm border-0 focus:ring-4 focus:ring-white/50 shadow-xl transition-all duration-300 placeholder:text-gray-500"
+            className="w-full pl-12 pr-6 py-4 text-lg rounded-2xl bg-white/80 backdrop-blur-sm border-0 focus:ring-4 focus:ring-white/50 shadow-xl transition-all duration-300 text-gray-500 placeholder:text-gray-600"
           />
           {/* Liste des suggestions retournées par l'API de géocodage */}
           <ul className="absolute left-0 top-full mt-1 w-full  text-cyan-500 bg-white rounded-lg shadow-lg z-10">
