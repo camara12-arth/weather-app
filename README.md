@@ -17,57 +17,91 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  # Weather App
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+  Application météo simple construite avec React, TypeScript et Vite.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  Ce dépôt fournit une interface pour rechercher une ville, afficher des suggestions
+  via l'API de géocodage d'OpenWeather et récupérer les prévisions (forecast).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  ## Fonctionnalités
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  - Recherche de ville avec suggestions (géocodage direct OpenWeather)
+  - Prévisions horaires (carrousel horizontal)
+  - Tuiles d'informations : vent, humidité, pression, visibilité, lever/coucher du soleil
+  - Développé en TypeScript + React + Vite
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  ## Prérequis
+
+  - Node.js (version LTS recommandée)
+  - Une clé API OpenWeather (gratute) — inscrivez-vous sur https://openweathermap.org
+
+  Ajoutez la clé dans un fichier `.env` à la racine du projet avec la variable suivante :
+
+  ```
+  VITE_WEATHER_API_KEY=your_api_key_here
+  ```
+
+  ## Installation
+
+  Clonez le dépôt puis installez les dépendances :
+
+  ```bash
+  git clone <repo-url>
+  cd weather-app
+  npm install
+  ```
+
+  ## Scripts utiles
+
+  - Démarrer le serveur de développement (HMR) :
+
+  ```bash
+  npm run dev
+  ```
+
+  - Construire pour production :
+
+  ```bash
+  npm run build
+  ```
+
+  - Prévisualiser la build locale :
+
+  ```bash
+  npm run preview
+  ```
+
+  Si vous avez ESLint configuré, lancez-le avec :
+
+  ```bash
+  npm run lint
+  ```
+
+  ## Structure du projet
+
+  - `src/` : code source React
+    - `components/` : composants UI (Forecast, Tile, Search...)
+    - `hooks/` : hooks personnalisés (ex : `useForcast`)
+    - `helpers/` : utilitaires de formatage
+    - `types/` : définitions TypeScript
+
+  ## Utilisation
+
+  1. Démarrez le serveur de développement : `npm run dev`
+  2. Entrez une ville dans le champ de recherche (ex : "Bamako")
+  3. Sélectionnez une suggestion puis cliquez sur "Rechercher"
+
+  ## Contribuer
+
+  Les contributions sont les bienvenues. Ouvrez une issue pour proposer des améliorations
+  ou soumettez une pull request.
+
+  ## Licence
+
+  Ce projet est distribué sous la licence MIT — ajoutez un fichier `LICENSE` si souhaité.
+
+  ---
+
+  Si vous voulez que j'ajoute un badge CI, des captures d'écran ou une section de déploiement,
+  dites-moi ce que vous préférez et je l'ajouterai.

@@ -3,6 +3,13 @@ import Sunrise from './Icons/Sunrise'
 import Sunset from './Icons/Sunset'
 import Tile from './Tile'
 
+/*
+  Forecast
+  - Présente les informations météo récupérées (prévisions) pour la ville sélectionnée.
+  - Affiche la météo actuelle (premier élément de la liste), un bandeau horaire
+    déroulant et plusieurs tuiles d'informations (vent, humidité, pression, etc.).
+*/
+
 import {
   getHumidityValue,
   getWindDirection,
@@ -18,11 +25,13 @@ type Props = {
 }
 
 const Forecast = ({ data }: Props) => {
+  // La première entrée de la liste représente le point de référence actuel
   const today = data.list[0]
 
   return (
     <div className="w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-cyan-400 bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg">
       <div className="mx-auto w-[300px]">
+        {/* En-tête principal : nom de la ville, température et intervalle */}
         <section className="text-center">
           <h2 className="text-2xl font-black">
             {data.name} <span className="font-thin">{data.country}</span>
@@ -39,6 +48,7 @@ const Forecast = ({ data }: Props) => {
           </p>
         </section>
 
+        {/* Bandeau horizontal affichant les températures par tranche horaire */}
         <section className="flex overflow-x-scroll mt-4 pb-2 mb-5">
           {data.list.map((item, i) => (
             <div
@@ -59,6 +69,7 @@ const Forecast = ({ data }: Props) => {
           ))}
         </section>
 
+        {/* Section de tuiles : lever/coucher du soleil et métriques détaillées */}
         <section className="flex flex-wrap justify-between text-zinc-700">
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5">
             <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
